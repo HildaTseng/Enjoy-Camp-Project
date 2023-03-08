@@ -1,0 +1,48 @@
+.header-logo {
+    background: url(/src/assets/image/logo_nav_S.jpg);
+    width: 56px;
+    height: 40px;    
+    display: block; 
+    text-indent: 101%;  
+    overflow: hidden;
+    white-space:  nowrap;    
+    @include media-breakpoint-up(md) {
+        background: url(/src/assets/image/logo_nav_L.jpg);
+        width: 84px;
+        height: 60px;    
+    }
+}
+
+.header-cart-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    width: 48px;
+    height: 48px;
+    &:hover {
+        background: white;
+    }
+}
+.scroll-header-cart-btn {
+    background : $secondary;
+    color: $primary;
+    width: 48px;
+    height: 48px;
+    &:hover {
+        color: white;
+        background: $primary;
+    }
+}
+
+
+.btn-layout-cart {
+    width: 48px;
+    height: 48px;
+    background-color: $secondary;
+    &:hover {
+        background-color: $primary;
+        span {
+            color: white;
+            
+        }
+    }
+}

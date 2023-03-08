@@ -1,0 +1,17 @@
+.header-logo {
+  background: url(/src/assets/image/logo_nav_L.jpg);
+  width: 84px;
+  height: 60px;
+  display: block;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.material-symbols-outlined {
+  font-size: 16px;
+}
+
+.offcanvas.offcanvas-top {
+  height: 100vh;
+}/*# sourceMappingURL=header.css.map */

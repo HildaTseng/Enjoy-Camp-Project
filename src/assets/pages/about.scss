@@ -1,0 +1,21 @@
+.about-banner {
+    background: url(/src/assets/image/christopher-ott-3JBy7HI1Mjc-unsplash.jpg);
+    width: 100%;
+    height: 360px;
+    background-position: 28% 63%;
+    background-size: cover;
+    @include media-breakpoint-up(md) {
+        height: 500px;
+        background-position: 0 63%;
+    }
+}
+.about-footer-img {
+    background: url(/src/assets/image/almos-bechtold-GFgWx3o8bTI-unsplash.jpg);
+    width: 100%;
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    @include media-breakpoint-up(md) {
+        height: 427px;
+    }
+}

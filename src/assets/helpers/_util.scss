@@ -1,0 +1,85 @@
+.fn-EN {
+    font-family: 'Marcellus';
+}
+.relative-z1 {
+    position: relative;
+    z-index: 1;
+}
+.hover-bg-secondary:hover {
+    background-color: $secondary;
+}
+.overflow-hidden:hover {
+    overflow: hidden;    
+}
+.smart-animate {
+    transition: all 0.3s ease-out;    
+}
+.fs-28-rwd-19 {
+    font-size: 19px;
+    line-height: 1.2;
+    @include media-breakpoint-up(md) {
+        font-size: 28px;
+        line-height: 1.5;
+    }
+}
+.fs-80-rwd-48 {
+    font-size: 48px;
+    @include media-breakpoint-up(md) {
+        font-size: 80px;
+    }
+}
+.fs-19 {
+    font-size: 19px;    
+}
+.fs-16 {
+    font-size: 16px;
+}
+.icon-fs-28-rwd-20 {
+    font-size: 20px;    
+    @include media-breakpoint-up(md) {
+        font-size: 28px;       
+    }
+}
+.lh-xl {
+    line-height: 2;
+    @include media-breakpoint-up(md) {
+        line-height: 3;
+    }
+}
+.fs-19-rwd-16 {
+    font-size: 16px;
+    @include media-breakpoint-up(md) {
+        font-size: 19px;
+    }
+}
+.w150-rwd-100 {
+    width: 100px;
+    @include media-breakpoint-up(xl) {
+        width: 150px;
+    }
+}
+.border-rwd-0 {
+    border: none;
+    @include media-breakpoint-up(md) {
+        border: 1px solid $gray-400;
+    }
+}
+.hover-text-primary {
+    color: $gray-800;
+    &:hover {
+        color: $primary;
+    }
+}
+.z-top {
+z-index: 5;
+}
+.transition-all-ease {
+    transition: all .7s ease;
+}
+.header-shadow {
+    box-shadow: 0 4px 4px -2px rgb(0 0 0 / 20%);
+}
+.text-lh > p {
+ line-height: 2;
+ margin-bottom: 20px;
+}
