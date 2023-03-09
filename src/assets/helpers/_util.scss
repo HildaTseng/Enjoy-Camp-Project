@@ -83,3 +83,18 @@ z-index: 5;
  line-height: 2;
  margin-bottom: 20px;
 }
+
+//sweet Alert
+.swal2-popup {
+    border-radius: 0 !important;
+}
+.swal2-title {
+    color: $primary !important;
+    font-size: 28px !important;
+    font-family: 'Noto Sans TC';
+    font-weight: normal !important;
+}
+.swal2-styled.swal2-confirm {
+    border-radius: 0 !important;
+    background-color : $gray-800  !important;
+}

@@ -36,9 +36,7 @@
                                     <button type="button" class="btn btn-outline-primary rounded-0 w-100 py-2" @click="addToCart(product.id, qty)"><span class="material-icons align-middle me-5">shopping_cart</span>加入購物車</button>
                                 </div>
                                 <div class="col-xl-5">
-                                    <router-link to="/cart">
-                                        <button type="button" class="btn btn-primary rounded-0 w-100 py-2" @click="addToCart(product.id, qty)"><span class="material-icons align-middle me-5 ">shopping_bag</span>立即購買</button>
-                                    </router-link>
+                                    <button type="button" class="btn btn-primary rounded-0 w-100 py-2" @click="addToCart(product.id, qty, true )"><span class="material-icons align-middle me-5 ">shopping_bag</span>立即購買</button>
                                 </div>
                             </div>
                         </div>

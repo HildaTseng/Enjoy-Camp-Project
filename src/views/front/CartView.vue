@@ -20,13 +20,13 @@
                                     <ul class="row text-center py-5 align-items-center border-bottom m-0" v-for="cart in carts" :key="cart.id">
                                         <li class="col-5">{{ cart.product.title }}</li>
                                         <li class="col-2">
-                                            <select class="form-select rounded-0" v-model="cart.qty" @change="updateCart(cart)">                                
+                                            <select class="form-select rounded-0" v-model="cart.qty" @change="updateCart(cart)" :disabled="cart.id === loadingItem">                                
                                                 <option :value="i" v-for="i in 20" :key="`${i}12`">{{ i }}</option>                                                
                                             </select>
                                         </li>
                                         <li class="col-2 p-0">$ {{ toCurrency(cart.product.price) }}</li>
                                         <li class="col-2">$ {{ toCurrency(cart.total) }}</li>
-                                        <li class="col-1 "><button type="button" class="border-0 bg-white" @click="deleteCartItem(cart)"><i class="fa-regular fa-trash-can fs-19"></i></button></li>
+                                        <li class="col-1 "><button type="button" class="border-0 bg-white" @click="deleteCartItem(cart)" :disabled="cart.id === loadingItem"><i class="fa-regular fa-trash-can fs-19"></i></button></li>
                                     </ul>                                    
                                 </div> 
                                 <div v-else class=" my-10">
@@ -127,17 +127,18 @@
 <script>
 import { mapState , mapActions } from "pinia";
 import cartStore from "@/stores/cart.js";
+import Swal from 'sweetalert2'
 
 const {VITE_URL, VITE_PATH} = import.meta.env   
 
 export default {
     data() {
         return {
-            code: "",
+            code: "",            
         }
     },
     computed: {
-        ...mapState(cartStore, ['carts', 'total', 'final_total']),
+        ...mapState(cartStore, ['carts', 'total', 'final_total', 'loadingItem']),
     },
     methods: {
         ...mapActions(cartStore, ['getCart', 'updateCart', 'deleteCartItem']),
@@ -153,17 +154,30 @@ export default {
             }            
             this.$http.post(`${VITE_URL}/v2/api/${VITE_PATH}/coupon`, { data } )  
                 .then((res) => { 
-                    alert(res.data.message)
-                    console.log(res.data)
+                    Swal.fire({
+                        icon: 'success',
+                        title: res.data.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })    
                     this.getCart()
                 })
                 .catch((err) => {
-                    alert(err.response.data.message);
+                    Swal.fire({
+                        icon: 'error',
+                        title: err.response.data.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })  
                 });
         },
     },
     mounted() {
-        this.getCart()
+        this.getCart()     
+        Swal.fire({
+            title: "開幕慶優惠好禮",
+            text: "優惠券輸入 【 NEW80 】即可獲得8折券",
+        })       
     },
 }
 </script>

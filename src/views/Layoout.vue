@@ -97,7 +97,7 @@ export default {
     ...mapActions(cartStore, ['getCart']),
     handleScroll() {      
       // 捲動時 isScrolled 設為 true   this.$refs.header.offsetHeight 
-      this.isScrollingDown = window.scrollY >  0      
+      this.isScrollingDown = window.scrollY >  this.$refs.header.offsetHeight      
     },
   },
   mounted() {
