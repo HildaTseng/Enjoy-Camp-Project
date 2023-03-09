@@ -33,10 +33,10 @@
                             </div>
                             <div class="row justify-content-end mt-xl-10 mt-5">
                                 <div class="col-xl-5 mb-3 mb-xl-0">                                
-                                    <button type="button" class="btn btn-outline-primary rounded-0 w-100 py-2" @click="addToCart(product.id, qty)"><span class="material-icons align-middle me-5">shopping_cart</span>加入購物車</button>
+                                    <button type="button" class="btn btn-outline-primary rounded-0 w-100 py-2 hvr-icon-wobble-horizontal" @click="addToCart(product.id, qty)"><span class="material-icons align-middle me-5 hvr-icon">shopping_cart</span>加入購物車</button>
                                 </div>
                                 <div class="col-xl-5">
-                                    <button type="button" class="btn btn-primary rounded-0 w-100 py-2" @click="addToCart(product.id, qty, true )"><span class="material-icons align-middle me-5 ">shopping_bag</span>立即購買</button>
+                                    <button type="button" class="btn btn-primary rounded-0 w-100 py-2 hvr-icon-pulse-shrink" @click="addToCart(product.id, qty, true )"><span class="material-icons align-middle me-5 hvr-icon">shopping_bag</span>立即購買</button>
                                 </div>
                             </div>
                         </div>

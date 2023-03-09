@@ -26,7 +26,7 @@
                                         </li>
                                         <li class="col-2 p-0">$ {{ toCurrency(cart.product.price) }}</li>
                                         <li class="col-2">$ {{ toCurrency(cart.total) }}</li>
-                                        <li class="col-1 "><button type="button" class="border-0 bg-white" @click="deleteCartItem(cart)" :disabled="cart.id === loadingItem"><i class="fa-regular fa-trash-can fs-19"></i></button></li>
+                                        <li class="col-1 "><button type="button" class="border-0 bg-white hover-text-primary" @click="deleteCartItem(cart)" :disabled="cart.id === loadingItem"><i class="fa-regular fa-trash-can fs-19"></i></button></li>
                                     </ul>                                    
                                 </div> 
                                 <div v-else class=" my-10">
@@ -56,7 +56,7 @@
                             </div> 
                             <div class="d-flex flex-row justify-content-end mt-5">
                                 <router-link to="/from" v-if="carts.length > 0" >
-                                    <button type="button" class="btn btn-primary rounded-0 px-12 py-2 position-relative">結帳去 <span class="material-icons align-middle icon-right p-0"> trending_flat </span></button> 
+                                    <button type="button" class="btn btn-primary rounded-0 px-12 py-2 position-relative hvr-icon-wobble-horizontal">結帳去 <span class="material-icons align-middle icon-right p-0 hvr-icon"> trending_flat </span></button> 
                                 </router-link>
                             </div> 
                         </div>
@@ -72,9 +72,9 @@
                                 <ul class="row text-center py-4 gy-4 align-items-center border-bottom" v-for="cart in carts" :key="cart.id">
                                     <li class="col-7 p-0 text-start ps-3">{{ cart.product.title }}</li>
                                     <li class="col-3 p-0 text-end">$ {{ toCurrency(cart.product.price) }}</li>
-                                    <li class="col-2 p-0"><button type="button" class="border-0 bg-white" @click="deleteCartItem(cart)"><i class="fa-regular fa-trash-can fs-7"></i></button></li>
+                                    <li class="col-2 p-0"><button type="button" class="border-0 bg-white" @click="deleteCartItem(cart)" :disabled="cart.id === loadingItem"><i class="fa-regular fa-trash-can fs-7"></i></button></li>
                                     <li class="col-6">
-                                        <select class="form-select rounded-0" v-model="cart.qty" @change="updateCart(cart)">                                
+                                        <select class="form-select rounded-0" v-model="cart.qty" @change="updateCart(cart)" :disabled="cart.id === loadingItem">                                
                                             <option :value="i" v-for="i in 10" :key="`${i}12`">{{ i }}</option>                                              
                                         </select>
                                     </li>

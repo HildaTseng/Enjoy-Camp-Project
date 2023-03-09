@@ -25,6 +25,9 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
+// hover.css
+import 'hover.css/css/hover-min.css';
+
 // 自訂義CSS
 import "./assets/all.scss"
 import "bootstrap/dist/js/bootstrap.bundle"

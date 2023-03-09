@@ -53,13 +53,13 @@ export default {
     },
     liClass() {
       if (this.$route.name !== "首頁") {
-        return "text-primary";
+        return "text-primary hvr-underline-from-center pb-1";
       } 
       if (this.$route.name === "首頁") {
         if (this.isScrollingDown) {
-          return "text-primary transition-all-ease";
+          return "text-primary  hvr-underline-from-center pb-1";
         } else {
-          return "text-white transition-all-ease";
+          return "text-white hvr-float";
         }
       } 
     },
@@ -114,9 +114,9 @@ export default {
     <div class="container d-flex justify-content-between align-items-center py-5 ">    
       <h1><router-link to="/" class="header-logo" :class="h1Class">享露</router-link></h1>
       <ul class="nav d-md-flex justify-content-end align-items-center d-md-block d-none w-100" :class="ulClass">
-        <li><router-link to="/about" :class="liClass">關於我們</router-link></li>
-        <li><router-link to="/products" :class="liClass" class="mx-10 ">商品分類</router-link></li>
-        <li><router-link to="/news" :class="liClass" class="pe-10">最新消息</router-link></li>           
+        <li><router-link to="/about" :class="liClass" >關於我們</router-link></li>
+        <li><router-link to="/products" :class="liClass" class="mx-10">商品分類</router-link></li>
+        <li><router-link to="/news" :class="liClass" class="me-10">最新消息</router-link></li>           
       </ul>  
       <router-link to="/cart" :class="cartClass" class="px-4 pt-4 pb-3 rounded-circle d-md-block d-none position-relative">
         <span class="material-symbols-outlined  fs-16">shopping_cart</span>

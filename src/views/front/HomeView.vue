@@ -43,7 +43,7 @@
             <h2 class="mb-3 fw-bold">與大自然共享</h2>
             <p class="fw-bold ">分享 x 獨享 x 生活露營</p>
           </div>
-          <router-link to="/products"><button type="button" class="col-8 col-md-4 offset-md-1 banner-btn smart-animate">SEE ALL<span class="material-icons fs-6 icon-right">trending_flat</span></button>
+          <router-link to="/products"><button type="button" class="col-8 col-md-4 offset-md-1 banner-btn smart-animate hvr-icon-forward">SEE ALL<span class="material-icons fs-6 icon-right hvr-icon">trending_flat</span></button>
           </router-link>
         </div>
       </div>
@@ -57,38 +57,38 @@
         <div class="row row-cols-1 row-cols-lg-3 mt-md-12 mt-10">
           <div class="col">
             <div class="card border-0 ">  
-              <button type="button" class="border-0 p-0 position-relative overflow-hidden" @click="getCategoryProducts('家庭露營')">
+              <button type="button" class="border-0 p-0 position-relative overflow-hidden hvr-icon-forward" @click="getCategoryProducts('家庭露營')">
                 <div class="category-img-famaly img-scale-12 smart-animate"></div>
-                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">家庭露營 <span class="material-icons icon-fs-28-rwd-20">trending_flat</span></p>              
+                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center ">家庭露營 <span class="material-icons icon-fs-28-rwd-20 hvr-icon">trending_flat</span></p>              
               </button>
             </div>
   
             <div class="card border-0 mt-lg-6 my-3">
-              <button type="button" class="border-0 p-0 position-relative overflow-hidden"  @click="getCategoryProducts('機車露營')">
+              <button type="button" class="border-0 p-0 position-relative overflow-hidden hvr-icon-forward" @click="getCategoryProducts('機車露營')">
                 <div class="category-img-bike img-scale-12 smart-animate"></div>
-                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">機車露營<span class="material-icons icon-fs-28-rwd-20">trending_flat</span></p>
+                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">機車露營<span class="material-icons icon-fs-28-rwd-20 hvr-icon">trending_flat</span></p>
               </button>
             </div>
           </div>
           <div class="col">
             <div class="card border-0 my-3 my-lg-0">
-              <button type="button" class="border-0 p-0  position-relative overflow-hidden" @click="getCategoryProducts('帳篷')">
+              <button type="button" class="border-0 p-0  position-relative overflow-hidden hvr-icon-forward" @click="getCategoryProducts('帳篷')">
                 <div class="category-img-tool img-scale-12 smart-animate"></div>
-                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">營地裝備<span class="material-icons icon-fs-28-rwd-20">trending_flat</span></p>
+                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">營地裝備<span class="material-icons icon-fs-28-rwd-20 hvr-icon">trending_flat</span></p>
               </button>
             </div>
           </div>
           <div class="col">
             <div class="card border-0">
-              <button type="button" class="border-0 p-0 position-relative overflow-hidden" @click="getCategoryProducts('露營椅')">
+              <button type="button" class="border-0 p-0 position-relative overflow-hidden hvr-icon-forward" @click="getCategoryProducts('露營椅')">
                 <div class="category-img-furniture img-scale-12 smart-animate"></div>
-                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">家具系列<span class="material-icons fs-5">trending_flat</span></p>
+                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">家具系列<span class="material-icons fs-5 hvr-icon">trending_flat</span></p>
               </button>
             </div>
             <div class="card border-0  mt-lg-6 my-3">
-              <button type="button" class="border-0 p-0 position-relative overflow-hidden" @click="getCategoryProducts('焚火/燒烤')">
+              <button type="button" class="border-0 p-0 position-relative overflow-hidden hvr-icon-forward" @click="getCategoryProducts('焚火/燒烤')">
                 <div class="category-img-fire img-scale-12 smart-animate"></div>
-                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">野炊系列<span class="material-icons fs-5">trending_flat</span></p>
+                <p class="p-bottom-0 text-white fs-28-rwd-19 fw-bold p-5 pt-0 d-flex flex-row justify-content-between align-items-center">野炊系列<span class="material-icons fs-5 hvr-icon">trending_flat</span></p>
               </button>
   
             </div>
@@ -395,7 +395,6 @@ export default {
               return acc;
             }, {});
             this.products = result
-            // console.log("this.products", this.products);           
         })
         .catch((err) => {
             alert(err.response.data.message);
@@ -442,7 +441,6 @@ export default {
   mounted() {
     this.getNewsList()
     this.getItemProducts()
-    // this.updateSlidesPerView();
   },
 }
 </script>

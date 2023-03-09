@@ -46,3 +46,15 @@
         }
     }
 }
+
+//hover.css
+.hvr-underline-from-center:before {
+    background: $gray-800;
+    height: 2px;    
+}
+.hvr-float {
+    transition-duration: .2s;
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
