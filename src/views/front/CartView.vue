@@ -88,14 +88,14 @@
                                 <li class="col-3">優惠券</li>
                                 <li class="col-9">
                                     <div class="input-group ">
-                                        <input type="text" class="form-control rounded-0" placeholder="請輸入優惠代碼" >
-                                        <button type="button" class="input-group-text rounded-0" >套用</button>
+                                        <input type="text" class="form-control rounded-0" placeholder="請輸入優惠代碼" v-model="code">
+                                        <button type="button" class="input-group-text rounded-0" @click="getCoupon">套用</button>
                                     </div>
                                 </li>
                             </ul>
-                            <ul class="row text-center py-4 gy-4 align-items-center border-bottom">
+                            <ul class="row text-center py-4 gy-4 align-items-center border-bottom" v-if="total - final_total">
                                 <li class="col-7 text-end">優惠券折抵</li>
-                                <li class="col-5 text-danger text-end">-$500</li>
+                                <li class="col-5 text-danger text-end">- ${{ toCurrency(total - final_total) }}</li>
                             </ul>
                             <ul class="row text-center py-4 gy-4 align-items-center border-bottom">
                                 <li class="col-7 text-end">小計</li>

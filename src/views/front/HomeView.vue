@@ -5,7 +5,7 @@
   
       <!-- 影片banner -->
       <div class="position-relative w-100 vh-100">
-        <video  src="@/assets/image/Camping-Video.mp4" autoplay="true" loop="true" muted="true" class="video-banner "></video>
+        <video  src="@/assets/image/Camping-Video.mp4" autoplay="true" loop="true" muted="true" playsinline class="video-banner "></video>
         <div class="d-flex justify-content-center video-15">
           <div class="banner-logo-title d-flex justify-content-end align-items-end">
             <div class="banner-logo-text"></div>
@@ -43,7 +43,9 @@
             <h2 class="mb-3 fw-bold">與大自然共享</h2>
             <p class="fw-bold ">分享 x 獨享 x 生活露營</p>
           </div>
-          <router-link to="/products"><button type="button" class="col-8 col-md-4 offset-md-1 banner-btn smart-animate hvr-icon-forward">SEE ALL<span class="material-icons fs-6 icon-right hvr-icon">trending_flat</span></button>
+          <router-link to="/products"><button type="button" class="col-8 col-md-4 offset-md-1 banner-btn smart-animate hvr-icon-forward">
+            SEE ALL
+            <span class="material-icons fs-6 icon-right hvr-icon">trending_flat</span></button>
           </router-link>
         </div>
       </div>
@@ -130,7 +132,7 @@
               <router-link :to="`/product/${products['帳篷'].length > 1 ? products['帳篷'][9].id : ''  }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['帳篷'].length > 1 ? products['帳篷'][9].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; ">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                     <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['帳篷'][9].id )">加入購物車</button>
                   </div>                          
                 </div>
@@ -382,6 +384,7 @@ export default {
       const formattedDate = `${year}-${format_month}-${format_date}`; 
       return formattedDate
     },
+    //swiper商品
     getItemProducts() {
       this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/products/all`)  
         .then((res) => { 
@@ -400,6 +403,7 @@ export default {
             alert(err.response.data.message);
         });
     },    
+    // NEWS
     getNewsList() {
       this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/articles`)  
         .then((res) => { 
@@ -410,6 +414,7 @@ export default {
             alert(err.response.data.message);
         });
     },
+    //文章顯示3筆
     lengthThreeArr() {            
       if (this.articles.length > 3) {
           this.articles = this.articles.slice(0, 3); 
@@ -421,6 +426,7 @@ export default {
         }
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
+    //取得類別 router跳轉
     getCategoryProducts(category) {
       console.log(category)
       this.$router.push({
@@ -428,6 +434,7 @@ export default {
           query: { category: category }
       })                
     },
+    //swiper
     updateSlidesPerView() {
       if (window.innerWidth < 768) {
         this.slidesPerView = 1;

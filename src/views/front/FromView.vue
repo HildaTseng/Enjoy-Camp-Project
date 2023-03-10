@@ -50,7 +50,7 @@
                             <textarea id="message" class="form-control rounded-0" cols="30" rows="5" style="resize: none;"  
                                     v-model="form.message"></textarea>
                         </div> 
-                        <div class="text-center my-5">
+                        <div class="text-center my-10">
                             <button type="submit"  class="btn btn-primary rounded-0 px-12 py-2"  >確認訂單</button>
                         </div>
                     </v-form>

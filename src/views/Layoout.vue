@@ -8,6 +8,7 @@ export default {
       isScrollingDown: false // 網頁是否向下捲動
     };
   },
+  //監聽網頁向下滾動 不同CSS顯示
   computed: {
     ...mapState(cartStore, ['carts']),
     headerClass() {
@@ -96,14 +97,29 @@ export default {
   methods: {
     ...mapActions(cartStore, ['getCart']),
     handleScroll() {      
-      // 捲動時 isScrolled 設為 true   this.$refs.header.offsetHeight 
+      // 捲動時 isScrolled 設為 true  
       this.isScrollingDown = window.scrollY >  this.$refs.header.offsetHeight      
     },
+    //取得類別參數 路由帶值跳轉
+    getCategoryProducts(category) {
+      console.log(category)
+      this.$router.push({
+          name: '商品列表',
+          query: { category: category }
+      })                
+    },    
+
   },
   mounted() {
     // 監聽網頁滾動事件
     window.addEventListener("scroll", this.handleScroll);
     this.getCart()
+
+    // 在路由切換前關閉Offcanvas的視窗
+    this.$router.beforeEach((to, from, next) => {
+      this.$refs.offcanvas.classList.remove('show');
+      next();
+    });
   },
 }
 
@@ -133,7 +149,7 @@ export default {
     </div>
   </header>
   <!-- RWD選單  -->
-  <div class="offcanvas offcanvas-start d-md-none d-block border-0 overflow-auto vh-100" tabindex="-1" id="offcanvasStart" aria-labelledby="offcanvasStartLabel" >
+  <div ref="offcanvas" class="offcanvas offcanvas-start d-md-none d-block border-0 overflow-auto vh-100" tabindex="-1" id="offcanvasStart" aria-labelledby="offcanvasStartLabel"  data-bs-scroll="true" data-bs-backdrop="false">
     <div class="vh-100 ">
       <div class="offcanvas-header d-flex justify-content-end pt-10 pe-5">
         <button type="button" class="btn-close opacity-100 " data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -168,9 +184,9 @@ export default {
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                           <div class="accordion-body py-2 px-0">
                             <ul class="ps-4">
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">家庭露營系列</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">機車露營系列</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">登山露營系列</a></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('家庭露營')">家庭露營系列</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('機車露營')">機車露營系列</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('登山露營')">登山露營系列</button></li>
                             </ul> 
                           </div>
                         </div>
@@ -184,9 +200,9 @@ export default {
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                           <div class="accordion-body py-2 px-0">
                             <ul class="ps-4">
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">帳篷</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">天幕</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">帳篷配件</a></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('帳篷')">帳篷</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('天幕')">天幕</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('帳篷配件')">帳篷配件</button></li>
                             </ul>
                           </div>
                         </div>
@@ -200,11 +216,11 @@ export default {
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                           <div class="accordion-body py-2 px-0">
                             <ul class="ps-4">
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">戶外桌</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">露營椅</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">睡袋</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">床墊</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">枕頭</a></li>                                        
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('戶外桌')">戶外桌</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('露營椅')">露營椅</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('睡袋')">睡袋</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('床墊')">床墊</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('枕頭')">枕頭</button></li>                                        
                             </ul>
                           </div>
                         </div>
@@ -218,8 +234,8 @@ export default {
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                           <div class="accordion-body py-2 px-0">
                             <ul class="ps-4">
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">燈具</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">煤油燈</a></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('燈具')">燈具</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('煤油燈')">煤油燈</button></li>
                             </ul>
                           </div>
                         </div>
@@ -233,29 +249,29 @@ export default {
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                           <div class="accordion-body py-2 px-0">
                             <ul class="ps-4">
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">爐具</a></li>
-                              <li class="px-5 "><a href="#" class="fs-16 fw-normal ">餐具</a></li>                                     
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('爐具')">爐具</button></li>
+                              <li class="px-5 "><button type="button" class="border-0 p-0 bg-transparent fs-16 fw-normal " @click="getCategoryProducts('餐具')">餐具</button></li>                                     
                             </ul>
                           </div>
                         </div>
                       </div>
                       <div class="accordion-item border-0">
                         <h3 class="accordion-header">
-                          <button class="btn py-3 px-5 w-100 text-start border-0 " type="button">
+                          <button class="btn py-3 px-5 w-100 text-start border-0 " type="button" @click="getCategoryProducts('焚火/燒烤')">
                               焚火/燒烤
                           </button>
                         </h3>                               
                       </div>  
                       <div class="accordion-item border-0">
                         <h3 class="accordion-header">
-                            <button class="btn py-3 px-5 w-100 text-start border-0 " type="button">
+                            <button class="btn py-3 px-5 w-100 text-start border-0 " type="button" @click="getCategoryProducts('保冷/水箱')">
                                 保冷/水箱
                             </button>
                         </h3>   
                       </div>
                       <div class="accordion-item border-0">
                           <h3 class="accordion-header">
-                              <button class="btn py-3 px-5 w-100 text-start border-0 " type="button">
+                              <button class="btn py-3 px-5 w-100 text-start border-0 " type="button" @click="getCategoryProducts('收納/配件')">
                                   收納/配件
                               </button>
                           </h3>   

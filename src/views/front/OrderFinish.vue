@@ -7,7 +7,7 @@
                         <div class="border border-g-40">
                             <h2 class="fs-28 text-center fw-bold bg-secondary py-6">付款成功</h2>
                             <div class="text-center my-10">
-                                <span class="material-icons fs-1 mb-5">check_circle</span>
+                                <span class="material-icons fs-80-rwd-48 mb-5">check_circle</span>
                                 <p class="fs-19">感謝您的購買！<br>商品將於3-7天內送達</p>
                             </div>
                         </div>

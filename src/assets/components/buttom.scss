@@ -31,6 +31,22 @@
         opacity: 1;
     }
 }
+.swiper-btn-hover-add-cart {
+    position: absolute;
+    bottom: 0;    
+    width: 306px;
+    height: 100%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    &:hover {
+        opacity: 1;
+    }
+    @include media-breakpoint-up(lg) {
+        width: 100%;
+    }
+    
+}
 .add-cart-btn {
     position: absolute;
     bottom: 0;

@@ -1,7 +1,7 @@
 <template>
     <main>
         <section>
-            <div class="container my-12">               
+            <div class="container my-lg-12 my-10">               
                 <div class="row">
                     <!-- 分類 -->
                     <div class="col-lg-3 d-none d-lg-block" >
@@ -119,10 +119,10 @@
                     <!-- card 列表內容 -->
                     <div class="col-lg-9">
                         <!-- title & 排序 -->
-                        <div class="d-flex flex-row justify-content-between mb-11">
-                            <h2 class="px-5 border-primary border-2 border-start fs-5">{{ title }}</h2>
+                        <div class="d-lg-flex flex-lg-row justify-content-lg-between align-items-center mb-10">
+                            <h2 class="px-5 mb-5 border-primary border-2 border-start fs-5">{{ title }}</h2>
                               
-                            <select class="form-select w-25 rounded-0"  @change="changeSelect">
+                            <select class="form-select rounded-0 w-auto"  @change="changeSelect">
                                 <option value="最新上架" selected>最新上架</option>
                                 <option value="價格高至低排序" >價格高至低排序</option>
                                 <option value="價格低至高排序" >價格低至高排序</option>
@@ -192,7 +192,7 @@ export default {
             pages:{},
             title:"全部商品",
         }
-    },    
+    }, 
     methods: {
         getProducts(page = 1) {
             this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/products/?page=${page}`)  
@@ -239,7 +239,7 @@ export default {
                     alert(err.response.data.message);
                 });      
         },
-
+        //排序選單
         changeSelect() {
             if (event.target.value === "最新上架") {
                 this.getProducts()
@@ -249,18 +249,36 @@ export default {
                 this.products = this.products.sort((a, b) => a.price - b.price);
             }
         },
+        //判斷帶類別參數 要渲染不同類別畫面
+        getCategoryInRoute(category) {
+            if (category === "家庭露營" || category === "機車露營" || category === "登山露營") {
+                this.getCategoryCampModeProducts(category)
+            } else if (category !== "家庭露營" || category !== "機車露營" || category !== "登山露營") {
+                this.getCategoryProducts(category)
+            } else {
+                this.getProducts() 
+            }
+
+        },
         ...mapActions(cartStore ,["addToCart",]),
     }, 
-    mounted() {       
-        // this.getProducts() 
-        const category = this.$route.query.category;
-        if (category === "家庭露營" || category === "機車露營") {
-            this.getCategoryCampModeProducts(category)
-        } else if (category === "帳篷" || category === "露營椅" || category === "焚火/燒烤") {
-            this.getCategoryProducts(category)
+    mounted() {   
+        //判斷路由有帶參數 顯示不同畫面
+        const category = this.$route.query.category;    
+        if (category) {
+            this.getCategoryInRoute(category);
         } else {
-            this.getProducts()
+            this.getProducts();
         }
+
+        //RWD路由參數切換時 畫面重新渲染
+        this.$router.afterEach((to, from) => {
+            if (to.query.category) {
+                this.getCategoryInRoute(to.query.category);
+            } else {
+                this.getProducts();
+            }
+        });
     },
 }
 </script>

@@ -59,14 +59,14 @@
                                     <ul class="row text-center py-4 gy-4 align-items-center border-bottom" v-for="cart in carts" :key="cart.id">
                                         <li class="col-8 p-0 text-start ps-3">{{ cart.product.title }}</li>
                                         <li class="col-4 p-0 ">$ {{ toCurrency(cart.product.price) }}</li>
-                                        <li class="col-6">{{ cart.qty }}</li>
+                                        <li class="col-6">x {{ cart.qty }}</li>
                                         <li class="col-6 d-flex flex-row justify-content-around">小計<span class="fw-bold">$ {{ toCurrency(cart.total) }}</span></li>
                                     </ul>                                    
                                 </div>   
                                 <div class="border-top border-primary">
-                                    <ul class="row text-center py-4 gy-4 align-items-center border-bottom ">
+                                    <ul class="row text-center py-4 gy-4 align-items-center border-bottom " v-if="total - final_total">
                                         <li class="col-7 text-end">優惠券折抵</li>
-                                        <li class="col-5 text-danger text-end px-6">-$500</li>
+                                        <li class="col-5 text-danger text-end px-6">- ${{ toCurrency(total - final_total) }}</li>
                                     </ul>
                                     <ul class="row text-center py-4 gy-4 align-items-center border-bottom">
                                         <li class="col-7 text-end">小計</li>
@@ -110,7 +110,7 @@
                             </div>                                   
                         </div>
 
-                        <div class="d-flex flex-row justify-content-center">
+                        <div class="d-flex flex-row justify-content-center mb-10">
                             <button type="button" class="btn btn-primary rounded-0 px-12 py-2 position-relative" @click="createOrder">送出訂單</button>                                  
                         </div>
 
