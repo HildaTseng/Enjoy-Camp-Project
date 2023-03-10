@@ -18,9 +18,9 @@
                                 <div class="d-flex flex-row align-items-center w-75" >
                                     <p class="me-5 fs-19">數量</p>
                                     <div class="d-flex flex-row align-items-center border border-secondary border-3 w-75">
-                                        <button type="button" class="border-0 bg-white px-5 py-2" @click="minusCount"><span class="material-icons align-middle ">add</span></button>
+                                        <button type="button" class="border-0 bg-white px-5 py-2" @click="minusCount"><span class="material-icons align-middle text-primary">add</span></button>
                                         <input class="form-control border-0 text-center fs-28-rwd-19" type="text" readonly v-model="qty">
-                                        <button type="button" class="border-0 bg-white px-5 py-2" @click="addCount"><span class="material-icons align-middle">remove</span></button>
+                                        <button type="button" class="border-0 bg-white px-5 py-2" @click="addCount"><span class="material-icons align-middle text-primary">remove</span></button>
                                     </div>
                                 </div>
                                 <div v-if="product.price === product.origin_price" class="mt-3 mt-xl-0">
@@ -89,6 +89,7 @@ export default {
         }
     },
     watch: {
+        //監聽產品id 有變動時 重新渲染畫面
         '$route.params.id': {            
             handler(newId) {
                 this.id = newId;

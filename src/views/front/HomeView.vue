@@ -148,7 +148,7 @@
               <router-link :to="`/product/${products['天幕'].length > 1 ? products['天幕'][7].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['天幕'].length > 1 ? products['天幕'][7].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['天幕'][7].id)">加入購物車</button>
                   </div>
                 </div>
@@ -164,7 +164,7 @@
               <router-link :to="`/product/${products['煤油燈'].length > 1 ? products['煤油燈'][3].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['煤油燈'].length > 1 ? products['煤油燈'][3].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; ">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['煤油燈'][3].id)">加入購物車</button>
                   </div>
                 </div>
@@ -180,7 +180,7 @@
               <router-link :to="`/product/${products['帳篷配件'].length > 1 ? products['帳篷配件'][0].id : ''}`">
                 <div class="position-relative">
                   <img class="img-fluid "  :src="products['帳篷配件'].length > 1 ? products['帳篷配件'][0].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['帳篷配件'][0].id)">加入購物車</button>
                   </div>
                 </div>
@@ -196,7 +196,7 @@
               <router-link :to="`/product/${products['帳篷'].length > 1 ? products['帳篷'][11].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['帳篷'].length > 1 ? products['帳篷'][11].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; ">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                     <button type="button" class="add-cart-btn" @click.prevent="addToCart( products['帳篷'][11].id)">加入購物車</button>
                   </div>                          
                 </div>
@@ -212,7 +212,7 @@
               <router-link :to="`/product/${products['天幕'].length > 1 ? products['天幕'][6].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['天幕'].length > 1 ? products['天幕'][6].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['天幕'][6].id)">加入購物車</button>
                   </div>
                 </div>
@@ -228,7 +228,7 @@
               <router-link :to="`/product/${products['煤油燈'].length > 1 ? products['煤油燈'][0].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['煤油燈'].length > 1 ? products['煤油燈'][0].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; ">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['煤油燈'][0].id)">加入購物車</button>
                   </div>
                 </div>
@@ -244,7 +244,7 @@
               <router-link :to="`/product/${products['帳篷配件'].length > 1 ? products['帳篷配件'][2].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid "  :src="products['帳篷配件'].length > 1 ? products['帳篷配件'][2].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['帳篷配件'][2].id)">加入購物車</button>
                   </div>
                 </div>
@@ -260,7 +260,7 @@
               <router-link :to="`/product/${products['帳篷'].length > 1 ? products['帳篷'][8].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['帳篷'].length > 1 ? products['帳篷'][8].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; ">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                     <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['帳篷'][8].id)">加入購物車</button>
                   </div>                          
                 </div>
@@ -276,7 +276,7 @@
               <router-link :to="`/product/${products['天幕'].length > 1 ? products['天幕'][0].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['天幕'].length > 1 ? products['天幕'][0].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['天幕'][0].id)">加入購物車</button>
                   </div>
                 </div>
@@ -292,7 +292,7 @@
               <router-link :to="`/product/${products['煤油燈'].length > 1 ? products['煤油燈'][2].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid " :src="products['煤油燈'].length > 1 ? products['煤油燈'][2].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; object-position:bottom ;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['煤油燈'][2].id)">加入購物車</button>
                   </div>
                 </div>
@@ -308,7 +308,7 @@
               <router-link :to="`/product/${products['帳篷配件'].length > 1 ? products['帳篷配件'][5].id : '' }`">
                 <div class="position-relative">
                   <img class="img-fluid "  :src="products['帳篷配件'].length > 1 ? products['帳篷配件'][5].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover;">
-                  <div class="btn-hover-add-cart d-flex justify-content-center align-items-center">
+                  <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
                       <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['帳篷配件'][5].id)">加入購物車</button>
                   </div>
                 </div>
@@ -428,7 +428,6 @@ export default {
     },
     //取得類別 router跳轉
     getCategoryProducts(category) {
-      console.log(category)
       this.$router.push({
           name: '商品列表',
           query: { category: category }

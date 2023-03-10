@@ -5,7 +5,7 @@ import cartStore from "@/stores/cart.js";
 export default {
   data() {
     return {
-      isScrollingDown: false // 網頁是否向下捲動
+      isScrollingDown: false  // 網頁是否向下捲動
     };
   },
   //監聽網頁向下滾動 不同CSS顯示

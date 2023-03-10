@@ -14,13 +14,15 @@
                         <div class="col-md-6 col-xl-4 card-group" v-for="article in articles" :key="article.id">
                             <div class="card rounded-0  ">
                                 <img class="img-fluid " :src="article.imageUrl" :alt="article.title" style="aspect-ratio: 1/1.1; object-fit: cover;">
-                                <div class="card-body">
-                                    <h3 class="card-title fs-6 fw-bold my-4">{{ article.title }}</h3>
+                                <div class="card-body ">
+                                    <router-link :to="`/content/${article.id}`" class="hover-opacity">
+                                        <h3 class="card-title fs-6 fw-bold my-4">{{ article.title }}</h3>
+                                    </router-link>
                                     <p class="card-text d-inline-block text-truncate" style="max-width: 300px;">{{ article.description }}</p>
                                 </div>
                                 <div class="card-footer bg-white border-0 d-flex justify-content-between">
                                     <small class="text-muted">{{ turnDate(article.create_at) }}</small>
-                                    <router-link :to="`/content/${article.id}`"  class="stretched-link">閱讀更多</router-link>
+                                    <router-link :to="`/content/${article.id}`"  class="hvr-underline-from-center">閱讀更多</router-link>
                                 </div> 
                             </div>
                         </div>                    
