@@ -201,7 +201,6 @@ export default {
                     this.products = res.data.products
                     this.pages =  res.data.pagination;
                     this.getCategoryProducts()
-                    // console.log(res.data.products)
                 })
                 .catch((err) => {
                     alert(err.response.data.message);

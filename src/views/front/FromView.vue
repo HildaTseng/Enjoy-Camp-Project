@@ -70,7 +70,6 @@ export default {
         ...mapState(cartStore, ['form']),
     },    
     methods: {
-        // ...mapActions(cartStore, ['checkOrder']),
         isPhone(value) {
             const phoneNumber = /^(09)[0-9]{8}$/
             return phoneNumber.test(value) ? true : '需為正確的手機號碼格式'
