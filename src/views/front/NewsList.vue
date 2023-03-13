@@ -1,6 +1,13 @@
 <template>
     <main>
         <section>
+            <loading v-model:active="isLoading" >
+                <div class="loadingio-spinner-rolling-gpnxmojb0d">
+                    <div class="ldio-swt2qk0614">
+                        <div></div>
+                    </div>
+                </div>
+            </loading>
             <div class="container">
                 <nav class="my-10 d-none d-md-block" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
                     <ol class="breadcrumb">
@@ -35,6 +42,8 @@
   
 </template>
 <script>
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/css/index.css';
 
 const {VITE_URL, VITE_PATH} = import.meta.env   
 
@@ -42,13 +51,19 @@ export default {
     data() {
         return {
             articles: [],
+            isLoading : false,
         }
-    },    
+    },  
+    components: {
+        Loading
+    },  
     methods: {
         getNewsList() {
+            this.isLoading = true;
             this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/articles`)  
                 .then((res) => { 
-                  this.articles = res.data.articles
+                    this.isLoading = false;
+                    this.articles = res.data.articles
                 })
                 .catch((err) => {
                     alert(err.response.data.message);
@@ -65,8 +80,10 @@ export default {
             return formattedDate
         },
         getTags(tag) {
+            this.isLoading = true;
             this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/articles`)  
-                .then((res) => {                    
+                .then((res) => {       
+                    this.isLoading = false;             
                     const articles = res.data.articles;
                     const filteredArticles = articles.filter((article) => {
                         return article.tag.includes(tag)
