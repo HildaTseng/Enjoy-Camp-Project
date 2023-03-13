@@ -264,11 +264,11 @@ export default {
         //判斷title類別 顯示不同分頁資訊
         updatePage(page) {            
             if (this.title === "全部商品") {
-            this.getProducts(page);
+                this.getProducts(page);
             } else if (this.title.endsWith("系列")) {
-            this.getCategoryCampModeProducts(this.title.slice(0, -2), page);
+                this.getCategoryCampModeProducts(this.title.slice(0, -2), page);
             } else {
-            this.getCategoryProducts(this.title, page);
+                this.getCategoryProducts(this.title, page);
             }
         },
     }, 
