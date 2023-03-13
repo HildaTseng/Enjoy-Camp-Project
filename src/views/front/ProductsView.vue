@@ -153,7 +153,7 @@
                         <nav aria-label="Page navigation" v-if="pages.total_pages > 1">
                             <ul class="pagination my-10 d-flex justify-content-center ">
                                 <li class="page-item rounded-0 " :class="{ disabled : !pages.has_pre }">
-                                    <a class="page-link" href="#" aria-label="Previous"  @click.prevent="getProducts(pages.current_page - 1)">
+                                    <a class="page-link" href="#" aria-label="Previous"  @click.prevent="updatePage(pages.current_page - 1)">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
@@ -161,10 +161,10 @@
                                     v-for="page in pages.total_pages" 
                                     :key="page + 'page'" 
                                     :class="{ active : page === pages.current_page }">
-                                        <a class="page-link" href="#" @click.prevent="getProducts(page)">{{ page }}</a>
+                                        <a class="page-link" href="#" @click.prevent="updatePage(page)">{{ page }}</a>
                                 </li>                              
                                 <li class="page-item" :class="{ disabled : !pages.has_next }">
-                                    <a class="page-link" href="#" aria-label="Next"  @click.prevent="getProducts(pages.current_page + 1)">
+                                    <a class="page-link" href="#" aria-label="Next"  @click.prevent="updatePage(pages.current_page + 1)">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
@@ -194,6 +194,7 @@ export default {
         }
     }, 
     methods: {
+        ...mapActions(cartStore ,["addToCart",]),
         getProducts(page = 1) {
             this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/products/?page=${page}`)  
                 .then((res) => { 
@@ -260,7 +261,16 @@ export default {
             }
 
         },
-        ...mapActions(cartStore ,["addToCart",]),
+        //判斷title類別 顯示不同分頁資訊
+        updatePage(page) {            
+            if (this.title === "全部商品") {
+            this.getProducts(page);
+            } else if (this.title.endsWith("系列")) {
+            this.getCategoryCampModeProducts(this.title.slice(0, -2), page);
+            } else {
+            this.getCategoryProducts(this.title, page);
+            }
+        },
     }, 
     mounted() {   
         //判斷路由有帶參數 顯示不同畫面

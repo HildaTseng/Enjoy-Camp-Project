@@ -289,16 +289,16 @@
           </swiper-slide>
           <swiper-slide>
             <div class="card border-0 bg-secondary">
-              <router-link :to="`/product/${products['煤油燈'].length > 1 ? products['煤油燈'][2].id : '' }`">
+              <router-link :to="`/product/${products['煤油燈'].length > 1 ? products['煤油燈'][1].id : '' }`">
                 <div class="position-relative">
-                  <img class="img-fluid " :src="products['煤油燈'].length > 1 ? products['煤油燈'][2].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; object-position:bottom ;">
+                  <img class="img-fluid " :src="products['煤油燈'].length > 1 ? products['煤油燈'][1].imageUrl : '' " alt=""  style="aspect-ratio: 1/1.1; object-fit: cover; object-position:bottom ;">
                   <div class="swiper-btn-hover-add-cart d-flex justify-content-center align-items-center">
-                      <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['煤油燈'][2].id)">加入購物車</button>
+                      <button type="button" class="add-cart-btn" @click.prevent="addToCart(products['煤油燈'][1].id)">加入購物車</button>
                   </div>
                 </div>
                 <div class="card-body p-0 pt-6">
-                    <h4 class="card-title fs-19 fw-bold">{{  products['煤油燈'].length > 1 ? products['煤油燈'][2].title : '' }}</h4>
-                    <p class="card-text">$ {{  products['煤油燈'].length > 1 ? toCurrency( products['煤油燈'][2].price) : '' }}</p>
+                    <h4 class="card-title fs-19 fw-bold">{{  products['煤油燈'].length > 1 ? products['煤油燈'][1].title : '' }}</h4>
+                    <p class="card-text">$ {{  products['煤油燈'].length > 1 ? toCurrency( products['煤油燈'][1].price) : '' }}</p>
                 </div>
               </router-link>
             </div>
