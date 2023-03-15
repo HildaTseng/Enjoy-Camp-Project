@@ -1,106 +1,106 @@
 .fn-EN {
-    font-family: 'Marcellus';
+  font-family: "Marcellus";
 }
 .relative-z1 {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 .hover-bg-secondary:hover {
-    background-color: $secondary;
+  background-color: $secondary;
 }
 .overflow-hidden:hover {
-    overflow: hidden;    
+  overflow: hidden;
 }
 .smart-animate {
-    transition: all 0.3s ease-out;    
+  transition: all 0.3s ease-out;
 }
 .fs-28-rwd-19 {
-    font-size: 19px;
-    line-height: 1.2;
-    @include media-breakpoint-up(md) {
-        font-size: 28px;
-        line-height: 1.5;
-    }
+  font-size: 19px;
+  line-height: 1.2;
+  @include media-breakpoint-up(md) {
+    font-size: 28px;
+    line-height: 1.5;
+  }
 }
 .fs-80-rwd-48 {
-    font-size: 48px;
-    @include media-breakpoint-up(md) {
-        font-size: 80px;
-    }
+  font-size: 48px;
+  @include media-breakpoint-up(md) {
+    font-size: 80px;
+  }
 }
 .fs-19 {
-    font-size: 19px;    
+  font-size: 19px;
 }
 .fs-16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 .icon-fs-28-rwd-20 {
-    font-size: 20px;    
-    @include media-breakpoint-up(md) {
-        font-size: 28px;       
-    }
+  font-size: 20px;
+  @include media-breakpoint-up(md) {
+    font-size: 28px;
+  }
 }
 .lh-xl {
-    line-height: 2;
-    @include media-breakpoint-up(md) {
-        line-height: 3;
-    }
+  line-height: 2;
+  @include media-breakpoint-up(md) {
+    line-height: 3;
+  }
 }
 .fs-19-rwd-16 {
-    font-size: 16px;
-    @include media-breakpoint-up(md) {
-        font-size: 19px;
-    }
+  font-size: 16px;
+  @include media-breakpoint-up(md) {
+    font-size: 19px;
+  }
 }
 .w150-rwd-100 {
-    width: 100px;
-    @include media-breakpoint-up(xl) {
-        width: 150px;
-    }
+  width: 100px;
+  @include media-breakpoint-up(xl) {
+    width: 150px;
+  }
 }
 .border-rwd-0 {
-    border: none;
-    @include media-breakpoint-up(md) {
-        border: 1px solid $gray-400;
-    }
+  border: none;
+  @include media-breakpoint-up(md) {
+    border: 1px solid $gray-400;
+  }
 }
 .hover-text-primary {
-    color: $gray-800;
-    &:hover {
-        color: $primary;
-    }
+  color: $gray-800;
+  &:hover {
+    color: $primary;
+  }
 }
 .z-top {
-z-index: 5;
+  z-index: 5;
 }
 .transition-all-ease {
-    transition: all .7s ease;
+  transition: all 0.7s ease;
 }
 .header-shadow {
-    box-shadow: 0 4px 4px -2px rgb(0 0 0 / 20%);
+  box-shadow: 0 4px 4px -2px rgb(0 0 0 / 20%);
 }
 .text-lh > p {
- line-height: 2;
- margin-bottom: 20px;
+  line-height: 2;
+  margin-bottom: 20px;
 }
 .hover-opacity:hover {
-    opacity: 0.8;    
+  opacity: 0.8;
 }
 
 //sweet Alert
 .swal2-popup {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 .swal2-title {
-    color: $primary !important;
-    font-size: 28px !important;
-    font-family: 'Noto Sans TC';
-    font-weight: normal !important;
+  color: $primary !important;
+  font-size: 28px !important;
+  font-family: "Noto Sans TC";
+  font-weight: normal !important;
 }
 .swal2-styled.swal2-confirm {
-    border-radius: 0 !important;
-    background-color : $gray-800  !important;
+  border-radius: 0 !important;
+  background-color: $gray-800 !important;
 }
 .btn:first-child:active {
-    border-color: transparent;
+  border-color: transparent;
 }

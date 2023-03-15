@@ -1,16 +1,16 @@
 .footer-logo {
-    background: url(/src/assets/image/logo_footer_S.jpg);
-    width: 113px;
-    height: 80px;  
-    display: block;
-    @include media-breakpoint-up(md) {
-        background: url(/src/assets/image/logo_footer_L.jpg);
-        width: 170px;
-        height: 120px;        
+  background: url(/src/assets/image/logo_footer_S.jpg);
+  width: 113px;
+  height: 80px;
+  display: block;
+  @include media-breakpoint-up(md) {
+    background: url(/src/assets/image/logo_footer_L.jpg);
+    width: 170px;
+    height: 120px;
   }
 }
 .border-md-start {
-    @include media-breakpoint-up(md) {
-        border-left: 1px solid $secondary;
-    }
+  @include media-breakpoint-up(md) {
+    border-left: 1px solid $secondary;
+  }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable vue/multi-word-component-names */
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 
@@ -52,7 +53,6 @@ app.use(VueAxios, axios);
 
 // swiper
 SwiperCore.use([Navigation, Pagination]);
-// eslint-disable-next-line vue/multi-word-component-names
 app.component("swiper", Swiper);
 app.component("swiper-slide", SwiperSlide);
 
