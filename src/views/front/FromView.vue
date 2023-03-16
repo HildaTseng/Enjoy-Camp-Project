@@ -112,7 +112,7 @@
   </main>
 </template>
 <script>
-import { mapState, mapActions } from "pinia";
+import { mapState } from "pinia";
 import cartStore from "@/stores/cart.js";
 
 export default {

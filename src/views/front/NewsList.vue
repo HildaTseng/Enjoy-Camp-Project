@@ -137,7 +137,7 @@ export default {
     },
   },
   mounted() {
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach((to) => {
       if (to.path === "/news") {
         this.getNewsList();
       }

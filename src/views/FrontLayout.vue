@@ -6,92 +6,25 @@ export default {
   data() {
     return {
       isScrollingDown: false, // 網頁是否向下捲動
+      headerClass: "",
+      h1Class: "",
+      ulClass: "",
+      liClass: "",
+      cartClass: "",
+      menuClass: "",
     };
   },
-  //監聽網頁向下滾動 不同CSS顯示
   computed: {
     ...mapState(cartStore, ["carts"]),
-    headerClass() {
-      if (this.$route.name !== "首頁") {
-        if (this.isScrollingDown) {
-          return "bg-white sticky-top  header-shadow transition-all-ease";
-        } else {
-          return "bg-white sticky-top transition-all-ease";
-        }
-      }
-      if (this.$route.name === "首頁") {
-        if (this.isScrollingDown) {
-          return "bg-white sticky-top transition-all-ease header-shadow";
-        } else {
-          return "bg-transparent  fixed-top transition-all-ease";
-        }
-      }
-    },
-    h1Class() {
-      if (this.$route.name !== "首頁") {
-        return "visible";
-      }
-      if (this.$route.name === "首頁") {
-        if (this.isScrollingDown) {
-          return "visible ";
-        } else {
-          return "invisible ";
-        }
-      }
-    },
-    ulClass() {
-      if (this.$route.name !== "首頁") {
-        return "justify-content-end";
-      }
-
-      if (this.$route.name === "首頁") {
-        if (this.isScrollingDown) {
-          return "justify-content-end transition-all-ease";
-        } else {
-          return "justify-content-center transition-all-ease";
-        }
-      }
-    },
-    liClass() {
-      if (this.$route.name !== "首頁") {
-        return "text-primary hvr-underline-from-center pb-1";
-      }
-      if (this.$route.name === "首頁") {
-        if (this.isScrollingDown) {
-          return "text-primary  hvr-underline-from-center pb-1";
-        } else {
-          return "text-white hvr-float";
-        }
-      }
-    },
-    cartClass() {
-      if (this.$route.name !== "首頁") {
-        return "scroll-header-cart-btn";
-      }
-      if (this.$route.name === "首頁") {
-        if (this.isScrollingDown) {
-          return "scroll-header-cart-btn transition-all-ease";
-        } else {
-          return "header-cart-btn transition-all-ease";
-        }
-      }
-    },
-    menuClass() {
-      if (this.$route.name !== "首頁") {
-        return "text-primary";
-      }
-      if (this.$route.name === "首頁") {
-        if (this.isScrollingDown) {
-          return "text-primary transition-all-ease";
-        } else {
-          return "text-white transition-all-ease";
-        }
-      }
-    },
   },
-  beforeUnmount() {
-    // 移除監聽事件
-    window.removeEventListener("scroll", this.handleScroll);
+  // 監聽nav在不同路由&網頁捲動有變動時 觸發updateClasses()
+  watch: {
+    "$route.name"() {
+      this.updateClasses();
+    },
+    isScrollingDown() {
+      this.updateClasses();
+    },
   },
   methods: {
     ...mapActions(cartStore, ["getCart"]),
@@ -101,14 +34,53 @@ export default {
     },
     //取得類別參數 路由帶值跳轉
     getCategoryProducts(category) {
-      console.log(category);
       this.$router.push({
         name: "商品列表",
         query: { category: category },
       });
     },
+    //nav顯示不同CSS : 先判斷是否在首頁 再判斷是否網頁向下滾動
+    updateClasses() {
+      if (this.$route.name !== "首頁") {
+        if (this.isScrollingDown) {
+          this.headerClass =
+            "bg-white sticky-top header-shadow transition-all-ease";
+          this.h1Class = "visible";
+          this.ulClass = "justify-content-end";
+          this.liClass = "text-primary hvr-underline-from-center pb-1";
+          this.cartClass = "scroll-header-cart-btn";
+          this.menuClass = "text-primary";
+        } else {
+          this.headerClass = "bg-white sticky-top transition-all-ease";
+          this.h1Class = "visible";
+          this.ulClass = "justify-content-end";
+          this.liClass = "text-primary hvr-underline-from-center pb-1";
+          this.cartClass = "scroll-header-cart-btn";
+          this.menuClass = "text-primary";
+        }
+      } else {
+        if (this.isScrollingDown) {
+          this.headerClass =
+            "bg-white sticky-top transition-all-ease header-shadow";
+          this.h1Class = "visible";
+          this.ulClass = "justify-content-end transition-all-ease";
+          this.liClass = "text-primary hvr-underline-from-center pb-1";
+          this.cartClass = "scroll-header-cart-btn transition-all-ease";
+          this.menuClass = "text-primary transition-all-ease";
+        } else {
+          this.headerClass = "bg-transparent fixed-top transition-all-ease";
+          this.h1Class = "invisible";
+          this.ulClass = "justify-content-center transition-all-ease";
+          this.liClass = "text-white hvr-float";
+          this.cartClass = "header-cart-btn transition-all-ease";
+          this.menuClass = "text-white transition-all-ease";
+        }
+      }
+    },
   },
   mounted() {
+    this.updateClasses();
+
     // 監聽網頁滾動事件
     window.addEventListener("scroll", this.handleScroll);
     this.getCart();
@@ -158,7 +130,7 @@ export default {
         <span class="material-symbols-outlined fs-16">shopping_cart</span>
         <span
           class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle-x"
-          v-if="carts.length > 0"
+          v-if="carts?.length > 0"
           >{{ carts.length }}</span
         >
       </router-link>

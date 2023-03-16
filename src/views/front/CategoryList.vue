@@ -321,8 +321,8 @@ export default {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     getCategoryProducts() {
+      // eslint-disable-next-line no-unused-vars
       const { category } = this.$route.params;
-      console.log(this.$route.params.category);
     },
   },
   mounted() {

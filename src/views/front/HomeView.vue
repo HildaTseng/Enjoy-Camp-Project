@@ -934,7 +934,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
+import { mapActions } from "pinia";
 import cartStore from "@/stores/cart.js";
 import SwiperCore, { Navigation } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -955,6 +955,10 @@ export default {
       },
       slidesPerView: 1,
     };
+  },
+  comments: {
+    Swiper,
+    SwiperSlide,
   },
   methods: {
     ...mapActions(cartStore, ["addToCart"]),

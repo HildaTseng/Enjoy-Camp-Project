@@ -423,7 +423,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "pinia";
+import { mapActions } from "pinia";
 import cartStore from "@/stores/cart.js";
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/css/index.css";
@@ -549,7 +549,7 @@ export default {
     }
 
     //RWD路由參數切換時 畫面重新渲染
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach((to) => {
       if (to.query.category) {
         this.getCategoryInRoute(to.query.category);
       } else {

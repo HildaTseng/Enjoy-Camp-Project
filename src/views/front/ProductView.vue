@@ -150,7 +150,7 @@
   </main>
 </template>
 <script>
-import { mapState, mapActions } from "pinia";
+import { mapActions } from "pinia";
 import cartStore from "@/stores/cart.js";
 
 const { VITE_URL, VITE_PATH } = import.meta.env;
