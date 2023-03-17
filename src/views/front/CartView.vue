@@ -212,7 +212,7 @@
                   $ {{ toCurrency(final_total) }}
                 </li>
               </ul>
-              <div class="d-flex flex-row mt-5">
+              <div class="d-flex flex-row mt-5"  v-if="carts.length > 0">
                 <router-link
                   to="/from"
                   class="btn btn-primary rounded-0 py-2 position-relative w-100"

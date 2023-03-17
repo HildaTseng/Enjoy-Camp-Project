@@ -34,7 +34,7 @@
                       @click="minusCount"
                     >
                       <span class="material-icons align-middle text-primary"
-                        >add</span
+                        >remove</span
                       >
                     </button>
                     <input
@@ -49,7 +49,7 @@
                       @click="addCount"
                     >
                       <span class="material-icons align-middle text-primary"
-                        >remove</span
+                        >add</span
                       >
                     </button>
                   </div>
